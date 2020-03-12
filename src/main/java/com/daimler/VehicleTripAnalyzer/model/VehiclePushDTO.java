@@ -1,6 +1,8 @@
-package com.daimler.VehicleTripAnalyze.models;
+package com.daimler.VehicleTripAnalyzer.model;
 
-public class VehiclePush extends VehiclePushDataPoint{
+import com.daimler.VehicleTripAnalyze.daos.VehiclePushDataPoint;
+
+public class VehiclePushDTO {
 	String vin;
 	int breakThreshold;
 	int gasTankSize;
@@ -36,11 +38,5 @@ public class VehiclePush extends VehiclePushDataPoint{
 
 	public void setData(VehiclePushDataPoint data) {
 		this.data = data;
-	}
-
-	@Override
-	public String toString() {
-		return "VehiclePush [vin=" + vin + ", breakThreshold=" + breakThreshold
-				+ ", gasTankSize=" + gasTankSize + ", data=" + data + "]";
 	}
 }

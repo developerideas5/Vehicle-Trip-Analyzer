@@ -1,4 +1,4 @@
-package com.daimler.VehicleTripAnalyze.models;
+package com.daimler.VehicleTripAnalyze.daos;
 
 import java.util.List;
 
