@@ -27,8 +27,10 @@ pipeline {
             steps {
                 sh '''
                 docker login -u "<userid>" -p "<password>"                
-		            docker build --no-cache -t vta_image .
+		docker build --no-cache -t vta_image .
                 docker tag vta_image:latest "<docker_Registry>"/vta_image:latest
+		docker push "<docker_Registry>"/vta_image:latest
+		docker rmi vta_image:latest
                 '''
             }
         }
