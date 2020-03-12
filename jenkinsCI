@@ -23,7 +23,7 @@ pipeline {
 
          
           stage('Update Docker VehicleTripAnalyzer image') {
-            when { branch "master" }
+            when { branch "refs/remotes/origin/master" }
             steps {
                 sh '''
                 docker login -u "<userid>" -p "<password>"                
