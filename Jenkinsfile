@@ -21,17 +21,11 @@ pipeline {
             }
         }
 
-        stage ('Deployment Stage') {
-            steps {
-               sh 'mvn deploy'
-            }
-        }
-        
+         
           stage('Update Docker VehicleTripAnalyzer image') {
             when { branch "master" }
             steps {
                 sh '''
-		docker rmi vta_image
 		docker build --no-cache -t vta_image .					
                 '''
             }
