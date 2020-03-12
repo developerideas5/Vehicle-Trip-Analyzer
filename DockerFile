@@ -1,4 +1,6 @@
 FROM openjdk:8-jre-alpine
+java ${JVM_ARGS} -jar -Dserver.port=9090 bin/VehicleTripAnalyzer.jar
+ADD target/*.jar VehicleTripAnalyzer.jar
 EXPOSE 9090
-ADD target/VehicleTripAnalyzer.jar VehicleTripAnalyzer.jar
+VOLUME bin
 ENTRYPOINT ["java","-jar", "VehicleTripAnalyzer.jar"]
