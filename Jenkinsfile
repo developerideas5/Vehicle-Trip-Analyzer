@@ -37,9 +37,8 @@ pipeline {
             when { branch "master" }
             steps {
                 sh '''
-                	docker rmi vta_image
-                    docker build --no-cache -t vta_image .
-					
+		docker rmi vta_image
+		docker build --no-cache -t vta_image .					
                 '''
             }
         }
@@ -48,9 +47,9 @@ pipeline {
             when { branch "master" }
             steps {
                 sh '''
-					docker stop vta_cont
-					docker rm vta_cont
-					docker run -p 9090:9090 --name vta_cont -t -d vta_image
+		docker stop vta_cont
+		docker rm vta_cont
+		docker run -p 9090:9090 --name vta_cont -t -d vta_image
                 '''
             }
         }
