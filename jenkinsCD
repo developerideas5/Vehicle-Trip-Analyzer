@@ -1,0 +1,19 @@
+pipeline {
+    agent { label 'slave01' }
+      stages {
+        stage('Run VehicleTripAnalyzer container') {
+            when { branch "master" }
+            steps {
+                 sh '''
+                    docker login -u "<userid>" -p "<password>"
+                    docker pull <org_docker_repo>/vta_image:latest
+                    docker stop vta_cont
+                    docker rm vta_cont
+                    docker run -p 9090:9090 --name vta_cont -t -d <org_docker_repo>/vta_image:latest
+                    docker rmi -f $(docker images -q --filter dangling=true)
+                '''
+            }
+        }
+    }
+    
+}
