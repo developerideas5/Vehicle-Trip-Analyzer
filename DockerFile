@@ -1,0 +1,4 @@
+FROM openjdk:8-jre-alpine
+EXPOSE 8080
+ADD target/VehicleTripAnalyzer.jar VehicleTripAnalyzer.jar
+ENTRYPOINT ["java","-jar", "VehicleTripAnalyzer.jar"]
