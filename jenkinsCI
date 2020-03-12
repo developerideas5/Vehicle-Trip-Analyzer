@@ -1,0 +1,36 @@
+pipeline {
+    agent { label 'slave01' }
+      stages {
+        stage ('Compile Stage') {
+
+            steps {
+               sh 'mvn clean compile'
+	    }
+        }
+
+        stage ('Testing Stage') {
+
+            steps {
+                sh 'mvn test'
+            }
+        }
+		
+		stage('Build Stage') {
+            steps {
+                sh 'mvn install'
+            }
+        }
+
+         
+          stage('Update Docker VehicleTripAnalyzer image') {
+            when { branch "master" }
+            steps {
+                sh '''
+                docker login -u "<userid>" -p "<password>"                
+		            docker build --no-cache -t vta_image .
+                docker tag vta_image:latest "<docker_Registry>"/vta_image:latest
+                '''
+            }
+        }
+       }
+   }
