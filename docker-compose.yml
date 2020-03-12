@@ -5,8 +5,4 @@ services:
         ports:
             - 9090:9090
         environment:
-<<<<<<< HEAD
             - SPRING_PROFILES_ACTIVE=ovh
-=======
-            - SPRING_PROFILES_ACTIVE=ovh
->>>>>>> branch 'master' of https://github.com/developerideas5/Vehicle-Trip-Analyzer.git

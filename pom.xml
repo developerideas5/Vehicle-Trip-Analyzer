@@ -37,15 +37,17 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+            		<groupId>com.jayway.jsonpath</groupId>
+	                <artifactId>json-path</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+    		<plugins>
+		        <plugin>
+		            <groupId>org.springframework.boot</groupId>
+		            <artifactId>spring-boot-maven-plugin</artifactId>
+		        </plugin>
+		</plugins>
 	</build>
 </project>
