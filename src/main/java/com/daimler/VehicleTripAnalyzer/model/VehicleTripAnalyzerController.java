@@ -28,13 +28,13 @@ public class VehicleTripAnalyzerController {
 	@Autowired
 	private com.daimler.VehicleTripAnalyze.service.VehicleTripAnalyzerService VehicleTripAnalyzerService;
 	
-	@RequestMapping(value = "/hello", method = POST)
+	@RequestMapping(value = "/")
 	public String trip1() {
-		//VehiclePush VehicleTripAnalyzerService = VehicleTripAnalyzerService.load();
-		return "world"; 
+		
+		return "It's working"; 
 	}
 	
-	@RequestMapping(value = "/trip", method = POST)
+	/*@RequestMapping(value = "/trip", method = POST)
 	ResponseEntity<VehiclePushDTO> trip(@RequestBody @Valid final VehiclePushDTO vehiclePushDTO) {
 		//VehiclePush VehicleTripAnalyzerService = VehicleTripAnalyzerService.load();
 		return null ;
@@ -52,7 +52,7 @@ public class VehicleTripAnalyzerController {
 	    @RequestMapping(value = "/", method = RequestMethod.GET)
 		public List<Users> getAllUsers() {
 			return repository.findAll();
-		}
+		}*/
 
 		
 
