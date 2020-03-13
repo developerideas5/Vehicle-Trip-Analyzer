@@ -1,9 +1,8 @@
 package com.daimler.VehicleTripAnalyze.daos;
 
-import org.springframework.data.annotation.Id;
 
 public class Trip {
-	@Id
+	
 	String tripid;
 	String depature;
 	String destination;
