@@ -20,13 +20,19 @@ import com.daimler.VehicleTripAnalyzer.repository.UsersRepository;
 
 
 @RestController
-@RequestMapping(path = "/vehicle")
 public class VehicleTripAnalyzerController {
 
 	@Autowired
+	private UsersRepository repository;
+	
+	@Autowired
 	private com.daimler.VehicleTripAnalyze.service.VehicleTripAnalyzerService VehicleTripAnalyzerService;
 	
-	
+	@RequestMapping(value = "/hello", method = POST)
+	public String trip1() {
+		//VehiclePush VehicleTripAnalyzerService = VehicleTripAnalyzerService.load();
+		return "world"; 
+	}
 	
 	@RequestMapping(value = "/trip", method = POST)
 	ResponseEntity<VehiclePushDTO> trip(@RequestBody @Valid final VehiclePushDTO vehiclePushDTO) {
@@ -36,9 +42,6 @@ public class VehicleTripAnalyzerController {
 	
 
 	
-	 @Autowired
-	    private UsersRepository repository;
-	    
 	    @GetMapping(path="/", produces = "application/json")
 	    public Users getUsers(@PathVariable("id") String id) 
 	    {
