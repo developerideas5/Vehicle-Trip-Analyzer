@@ -4,5 +4,3 @@ services:
         image: vehicle-trip-analyzer:1.0.0
         ports:
             - 9090:9090
-        environment:
-            - SPRING_PROFILES_ACTIVE=ovh

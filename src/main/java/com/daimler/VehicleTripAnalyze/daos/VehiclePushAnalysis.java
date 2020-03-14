@@ -1,62 +1,108 @@
 package com.daimler.VehicleTripAnalyze.daos;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
+
 public class VehiclePushAnalysis {
-	String vin;
-	String departure;
-	String destination;
-	List<Break> refuelStops;
-	float consumption;
-	List<Break> breaks;
+	  private String vin = null;
+	  private String departure = null;
+	  private String destination = null;
+	  private List<Break> refuelStops = null;
+	  private Float consumption = null;
+	  private List<Break> breaks = null;
 
-	public String getVin() {
-		return vin;
-	}
+	 
 
-	public void setVin(String vin) {
+	  public VehiclePushAnalysis(String vin) {
 		this.vin = vin;
 	}
 
-	public String getDeparture() {
-		return departure;
-	}
+	public String getVin() {
+	    return vin;
+	  }
 
-	public void setDeparture(String departure) {
-		this.departure = departure;
-	}
+	  public void setVin(String vin) {
+	    this.vin = vin;
+	  }
 
-	public String getDestination() {
-		return destination;
-	}
+	  public VehiclePushAnalysis departure(String departure) {
+	    this.departure = departure;
+	    return this;
+	  }
+	  public String getDeparture() {
+	    return departure;
+	  }
 
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
+	  public void setDeparture(String departure) {
+	    this.departure = departure;
+	  }
 
-	public List<Break> getRefuelStops() {
-		return refuelStops;
-	}
+	  public VehiclePushAnalysis destination(String destination) {
+	    this.destination = destination;
+	    return this;
+	  }
+	  public String getDestination() {
+	    return destination;
+	  }
 
-	public void setRefuelStops(List<Break> refuelStops) {
+	  public void setDestination(String destination) {
+	    this.destination = destination;
+	  }
+
+	  public VehiclePushAnalysis(List<Break> refuelStops) {
 		this.refuelStops = refuelStops;
 	}
 
-	public float getConsumption() {
-		return consumption;
-	}
+	public VehiclePushAnalysis addRefuelStopsItem(Break refuelStopsItem) {
+	    if (this.refuelStops == null) {
+	      this.refuelStops = new ArrayList<Break>();
+	    }
+	    this.refuelStops.add(refuelStopsItem);
+	    return this;
+	  }
 
-	public void setConsumption(float consumption) {
-		this.consumption = consumption;
-	}
+	  public List<Break> getRefuelStops() {
+	    return refuelStops;
+	  }
 
-	public List<Break> getBreaks() {
-		return breaks;
-	}
+	  public void setRefuelStops(List<Break> refuelStops) {
+	    this.refuelStops = refuelStops;
+	  }
 
-	public void setBreaks(List<Break> breaks) {
-		this.breaks = breaks;
-	}
+	  public VehiclePushAnalysis consumption(Float consumption) {
+	    this.consumption = consumption;
+	    return this;
+	  }
+	  public Float getConsumption() {
+	    return consumption;
+	  }
+
+	  public void setConsumption(Float consumption) {
+	    this.consumption = consumption;
+	  }
+
+	  public VehiclePushAnalysis breaks(List<Break> breaks) {
+	    this.breaks = breaks;
+	    return this;
+	  }
+
+	  public VehiclePushAnalysis addBreaksItem(Break breaksItem) {
+	    if (this.breaks == null) {
+	      this.breaks = new ArrayList<Break>();
+	    }
+	    this.breaks.add(breaksItem);
+	    return this;
+	  }
+
+	  public List<Break> getBreaks() {
+	    return breaks;
+	  }
+
+	  public void setBreaks(List<Break> breaks) {
+	    this.breaks = breaks;
+	  }
 
 	@Override
 	public String toString() {

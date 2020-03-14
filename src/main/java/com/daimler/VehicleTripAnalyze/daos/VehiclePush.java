@@ -1,10 +1,13 @@
 package com.daimler.VehicleTripAnalyze.daos;
 
-public class VehiclePush extends VehiclePushDataPoint{
-	String vin;
-	int breakThreshold;
-	int gasTankSize;
-	VehiclePushDataPoint data;
+import java.util.List;
+
+public class VehiclePush  {
+	private String vin = null;
+	private Integer breakThreshold = null;
+	private Integer gasTankSize = null;
+	private List<VehiclePushDataPoint> data = null;
+
 
 	public String getVin() {
 		return vin;
@@ -14,27 +17,27 @@ public class VehiclePush extends VehiclePushDataPoint{
 		this.vin = vin;
 	}
 
-	public int getBreakThreshold() {
+	public Integer getBreakThreshold() {
 		return breakThreshold;
 	}
 
-	public void setBreakThreshold(int breakThreshold) {
+	public void setBreakThreshold(Integer breakThreshold) {
 		this.breakThreshold = breakThreshold;
 	}
 
-	public int getGasTankSize() {
+	public Integer getGasTankSize() {
 		return gasTankSize;
 	}
 
-	public void setGasTankSize(int gasTankSize) {
+	public void setGasTankSize(Integer gasTankSize) {
 		this.gasTankSize = gasTankSize;
 	}
 
-	public VehiclePushDataPoint getData() {
+	public List<VehiclePushDataPoint> getData() {
 		return data;
 	}
 
-	public void setData(VehiclePushDataPoint data) {
+	public void setData(List<VehiclePushDataPoint> data) {
 		this.data = data;
 	}
 
