@@ -1,4 +1,4 @@
-package com.daimler.VehicleTripAnalyze.daos;
+package com.daimler.VehicleTripAnalyzer.model;
 
 public class Break {
 	private Long startTimestamp;

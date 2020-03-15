@@ -1,4 +1,4 @@
-package com.daimler.VehicleTripAnalyze.service;
+package com.daimler.VehicleTripAnalyzer.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 
 @Configuration
 @EnableWebSecurity
@@ -24,7 +26,8 @@ public class AuthenticationService extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)
 			throws Exception {
-		auth.inMemoryAuthentication().withUser("user")
+		auth
+		.inMemoryAuthentication().withUser("user")
 				.password(passwordEncoder().encode("123456")).roles("USER")
 				.and().withUser("admin")
 				.password(passwordEncoder().encode("123456"))
@@ -34,11 +37,13 @@ public class AuthenticationService extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
+			.csrf().disable()
 			.authorizeRequests()
-			.anyRequest()
-			.authenticated()
+			.antMatchers("/v1/**").authenticated()
 			.and()
 			.httpBasic();
 	}
+	
+	
 
 }

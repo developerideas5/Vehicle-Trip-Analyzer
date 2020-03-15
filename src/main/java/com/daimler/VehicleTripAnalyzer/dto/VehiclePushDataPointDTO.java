@@ -1,20 +1,13 @@
-package com.daimler.VehicleTripAnalyze.daos;
+package com.daimler.VehicleTripAnalyzer.dto;
 
-public class VehiclePushDataPoint {
+public class VehiclePushDataPointDTO {
+	
+	private Long timestamp ;
+	private Integer odometer ;
+	private Integer fuelLevel ;
+	private Float positionLat ;
+	private Float positionLong ;
 
-	private Long timestamp = null;
-	private Integer odometer = null;
-	private Integer fuelLevel = null;
-	private Float positionLat = null;
-	private Float positionLong = null;
-
-	public VehiclePushDataPoint(Long timestamp) {
-		this.timestamp = timestamp;
-	}
-
-	public VehiclePushDataPoint(Integer odometer) {
-		this.odometer = odometer;
-	}
 
 	public Long getTimestamp() {
 		return timestamp;

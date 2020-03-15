@@ -1,12 +1,14 @@
-package com.daimler.VehicleTripAnalyze.daos;
+package com.daimler.VehicleTripAnalyzer.model;
 
 import java.util.List;
 
 public class VehiclePush  {
-	private String vin = null;
-	private Integer breakThreshold = null;
-	private Integer gasTankSize = null;
-	private List<VehiclePushDataPoint> data = null;
+	
+	private String vin ;
+	private Integer breakThreshold ;
+	private Integer gasTankSize ;
+	private List<VehiclePushDataPoint> data ;
+
 
 
 	public String getVin() {
@@ -36,7 +38,7 @@ public class VehiclePush  {
 	public List<VehiclePushDataPoint> getData() {
 		return data;
 	}
-
+	
 	public void setData(List<VehiclePushDataPoint> data) {
 		this.data = data;
 	}
