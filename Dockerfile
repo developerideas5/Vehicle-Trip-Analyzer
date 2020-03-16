@@ -31,7 +31,7 @@ RUN chmod 755 $ANALYZER_BINARIES/entrypoint.sh
 RUN chmod 755 $ANALYZER_HOME/VehicleTripAnalyzer.jar
 
 # Expose default servlet container port
-EXPOSE 9090
+EXPOSE 8081
 
 VOLUME bin
 

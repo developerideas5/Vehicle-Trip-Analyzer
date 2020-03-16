@@ -37,7 +37,7 @@ pipeline {
                 sh '''
 		docker stop vta_cont
 		docker rm vta_cont
-		docker run -p 9090:9090 --name vta_cont -t -d vta_image
+		docker run -p 9090:8081 --name vta_cont -t -d vta_image
                 '''
             }
         }
