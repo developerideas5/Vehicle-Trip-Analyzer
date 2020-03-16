@@ -1,18 +1,18 @@
 package com.daimler.VehicleTripAnalyzer.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VehiclePushAnalysis {
+	
 	private String vin;
-	private String departure;
-	private String destination;
-	private List<Break> refuelStops;
+	private City departure;
+	private City destination;
+	private List<Break> refuelStops = new ArrayList<Break>();
 	private Float consumption;
-	private List<Break> breaks;
+	private List<Break> breaks = new ArrayList<Break>();
 
-	public VehiclePushAnalysis() {
-		this.vin = vin;
-	}
+
 
 	public String getVin() {
 		return vin;
@@ -22,19 +22,23 @@ public class VehiclePushAnalysis {
 		this.vin = vin;
 	}
 
-	public String getDeparture() {
+
+
+
+
+	public City getDeparture() {
 		return departure;
 	}
 
-	public void setDeparture(String departure) {
+	public void setDeparture(City departure) {
 		this.departure = departure;
 	}
 
-	public String getDestination() {
+	public City getDestination() {
 		return destination;
 	}
 
-	public void setDestination(String destination) {
+	public void setDestination(City destination) {
 		this.destination = destination;
 	}
 

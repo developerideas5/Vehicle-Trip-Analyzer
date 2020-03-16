@@ -3,11 +3,8 @@ package com.daimler.VehicleTripAnalyzer.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Component;
 
-import com.daimler.VehicleTripAnalyzer.dto.VehiclePushAnalysisDTO;
 import com.daimler.VehicleTripAnalyzer.dto.VehiclePushDTO;
 import com.daimler.VehicleTripAnalyzer.exception.TripResponseDTO;
 import com.daimler.VehicleTripAnalyzer.mapper.TripMapper;
@@ -20,6 +17,7 @@ public class TripServiceImpl implements TripService {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(TripServiceImpl.class);
 
+	
 	@Autowired
 	private TripMapper tripMapper;
 
@@ -39,8 +37,7 @@ public class TripServiceImpl implements TripService {
 	private VehiclePushAnalysis buildAnalysis(VehiclePush vehiclePush) {
 		VehiclePushAnalysis analysis = new VehiclePushAnalysis();
 		analysis.setVin(vehiclePush.getVin());
-		
 		return analysis;
 	}
-
+	
 }

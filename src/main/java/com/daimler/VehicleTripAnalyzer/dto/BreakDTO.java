@@ -1,10 +1,23 @@
 package com.daimler.VehicleTripAnalyzer.dto;
 
 public class BreakDTO {
-	private Long startTimestamp;
-	private Long endTimestamp;
-	private Float positionLat;
-	private Float positionLong;
+	private Long startTimestamp = 0L;
+	private Long endTimestamp = 0L;
+	private Float positionLat = 0f;
+	private Float positionLong = 0f;
+
+	public BreakDTO(Long startTimestamp, Long endTimestamp, Float positionLat,
+			Float positionLong) {
+		super();
+		this.startTimestamp = startTimestamp;
+		this.endTimestamp = endTimestamp;
+		this.positionLat = positionLat;
+		this.positionLong = positionLong;
+	}
+
+	public BreakDTO() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Long getStartTimestamp() {
 		return startTimestamp;

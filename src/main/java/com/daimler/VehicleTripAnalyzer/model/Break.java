@@ -1,13 +1,24 @@
 package com.daimler.VehicleTripAnalyzer.model;
 
 public class Break {
-	private Long startTimestamp;
-	private Long endTimestamp;
-	private Float positionLat;
-	private Float positionLong;
+	
+	private Long startTimestamp = 0L;
+	private Long endTimestamp = 0L;
+	private Float positionLat = 0f;
+	private Float positionLong = 0f;
 
-	public Break(Long startTimestamp) {
+
+	public Break(Long startTimestamp, Long endTimestamp, Float positionLat,
+			Float positionLong) {
+		super();
 		this.startTimestamp = startTimestamp;
+		this.endTimestamp = endTimestamp;
+		this.positionLat = positionLat;
+		this.positionLong = positionLong;
+	}
+
+	public Break() {
+		super();
 	}
 
 	public Long getStartTimestamp() {
