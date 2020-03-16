@@ -1,14 +1,18 @@
-package com.daimler.VehicleTripAnalyze.daos;
+package com.daimler.VehicleTripAnalyzer.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VehiclePushAnalysis {
-	String vin;
-	String departure;
-	String destination;
-	List<Break> refuelStops;
-	float consumption;
-	List<Break> breaks;
+	
+	private String vin;
+	private City departure;
+	private City destination;
+	private List<Break> refuelStops = new ArrayList<Break>();
+	private Float consumption;
+	private List<Break> breaks = new ArrayList<Break>();
+
+
 
 	public String getVin() {
 		return vin;
@@ -18,19 +22,23 @@ public class VehiclePushAnalysis {
 		this.vin = vin;
 	}
 
-	public String getDeparture() {
+
+
+
+
+	public City getDeparture() {
 		return departure;
 	}
 
-	public void setDeparture(String departure) {
+	public void setDeparture(City departure) {
 		this.departure = departure;
 	}
 
-	public String getDestination() {
+	public City getDestination() {
 		return destination;
 	}
 
-	public void setDestination(String destination) {
+	public void setDestination(City destination) {
 		this.destination = destination;
 	}
 
@@ -42,11 +50,11 @@ public class VehiclePushAnalysis {
 		this.refuelStops = refuelStops;
 	}
 
-	public float getConsumption() {
+	public Float getConsumption() {
 		return consumption;
 	}
 
-	public void setConsumption(float consumption) {
+	public void setConsumption(Float consumption) {
 		this.consumption = consumption;
 	}
 
@@ -65,4 +73,5 @@ public class VehiclePushAnalysis {
 				+ refuelStops + ", consumption=" + consumption + ", breaks="
 				+ breaks + "]";
 	}
+
 }
