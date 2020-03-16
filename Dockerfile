@@ -19,21 +19,13 @@ RUN mkdir -p $ANALYZER_BINARIES
 WORKDIR $ANALYZER_HOME
 
 # Copy notepad jar file
-COPY ./target/*.jar $ANALYZER_HOME/VehicleTripAnalyzer.jar
-
-# Add initialization script
-ADD entrypoint.sh $ANALYZER_BINARIES/entrypoint.sh
+COPY ./target/*.jar bin/VehicleTripAnalyzer.jar
 
 # Give permissions
-RUN chmod 755 $ANALYZER_BINARIES/entrypoint.sh
-
-# Give permissions
-RUN chmod 755 $ANALYZER_HOME/VehicleTripAnalyzer.jar
+RUN chmod 755 bin/VehicleTripAnalyzer.jar
 
 # Expose default servlet container port
-EXPOSE 8081
-
-VOLUME bin
+EXPOSE 9090
 
 # Main command
-ENTRYPOINT ["/bin/sh", "/opt/bin/entrypoint.sh"]
+CMD ["/usr/bin/java", "-jar", "-Dserver.port=9090", "bin/VehicleTripAnalyzer.jar"]
