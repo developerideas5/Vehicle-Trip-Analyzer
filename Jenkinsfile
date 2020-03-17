@@ -1,46 +1,49 @@
 pipeline {
     agent { label 'slave01' }
-      stages {
-        stage ('Compile Stage') {
+    stages {
+        stage('SCM Checkout'){
+            steps{ git branch: 'master', url: 'https://github.com/developerideas5/Vehicle-Trip-Analyzer.git' }
 
-            steps {
-               sh 'mvn clean compile'
-	    }
         }
-
-        stage ('Testing Stage') {
-
+        stage('Compile Stage') {
             steps {
-                sh 'mvn test'
-            }
-        }
-		
-		stage('Build Stage') {
-            steps {
-                sh 'mvn install'
+                sh 'mvn -v'
+                sh 'mvn clean install'
             }
         }
 
-         
-          stage('Update Docker VehicleTripAnalyzer image') {
-            when { branch "master" }
+        stage('Update Docker VehicleTripAnalyzer image') {
+
             steps {
-                sh '''
-		docker build --no-cache -t vta_image .					
-                '''
+                sh 'docker build --no-cache -t vta_image .'
             }
         }
 
         stage('Run VehicleTripAnalyzer container') {
-            when { branch "master" }
+
             steps {
-                sh '''
-		docker stop vta_cont
-		docker rm vta_cont
-		docker run -p 9090:8081 --name vta_cont -t -d vta_image
-                '''
+                script {
+                    try {
+                        sh 'docker exec vta_cont kill 1'
+                        sh 'sleep 10'
+                    } catch (err) {
+                        echo err.getMessage()
+                        sh 'echo failed to stop the contianer'
+                    }
+
+                    try {
+                        sh 'docker rm vta_cont'
+
+                    } catch (err) {
+                        echo err.getMessage()
+                        sh 'echo failed to remove the contianer'
+                    } finally {
+                        sh 'docker run -p 9090:9090 --name vta_cont -t -d vta_image'
+                    }
+                }
+
             }
         }
     }
-    
+
 }
